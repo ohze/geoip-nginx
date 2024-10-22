@@ -45,4 +45,6 @@ COPY --from=builder /usr/local/nginx/modules/ngx_http_geoip2_module.so /usr/loca
 
 COPY --chmod=+x rootfs /
 
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
