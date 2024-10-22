@@ -39,6 +39,8 @@ RUN mkdir -p /usr/src && \
 
 FROM nginx:1.26.2-alpine
 
+RUN apk add --no-cache libmaxminddb
+
 COPY --from=builder /usr/local/nginx/modules/ngx_http_geoip2_module.so /usr/local/nginx/modules/ngx_http_geoip2_module.so
 
 COPY --chmod=+x rootfs /
