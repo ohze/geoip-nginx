@@ -43,7 +43,7 @@ RUN apk add --no-cache libmaxminddb
 
 COPY --from=builder /usr/local/nginx/modules/ngx_http_geoip2_module.so /usr/local/nginx/modules/ngx_http_geoip2_module.so
 
-COPY --chmod=+x rootfs /
+COPY --chmod=0755 rootfs /
 
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
